@@ -6,168 +6,234 @@
     <title>Fathima Suhana | Portfolio</title>
     <style>
         :root {
-            --primary-color: #2d3436;
-            --accent-color: #0984e3;
-            --text-secondary: #636e72;
-            --bg-light: #f9f9f9;
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-glow: #38bdf8;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--primary-color);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             margin: 0;
-            padding: 0;
-            background-color: #fff;
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 0% 0%, #1e293b 0%, transparent 50%),
+                              radial-gradient(circle at 100% 100%, #0c4a6e 0%, transparent 50%);
+            background-attachment: fixed;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .glass-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
         header {
             text-align: center;
-            border-bottom: 2px solid var(--bg-light);
-            padding-bottom: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            font-size: 3rem;
+            margin: 0;
+            background: linear-gradient(to right, #fff, var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--accent-color);
+        .title-tag {
+            color: var(--accent-glow);
             font-weight: 600;
-        }
-
-        .contact-info {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .contact-info a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent-color);
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            border-left: 4px solid var(--accent-color);
-            padding-left: 15px;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
             text-transform: uppercase;
-        }
-
-        .education-item {
-            margin-bottom: 20px;
-        }
-
-        .date {
-            font-weight: bold;
-            color: var(--accent-color);
+            letter-spacing: 2px;
             font-size: 0.9rem;
-        }
-
-        .school {
-            font-size: 1.1rem;
-            font-weight: 600;
+            margin-top: 10px;
             display: block;
         }
 
-        .degree {
-            color: var(--text-secondary);
+        .contact-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .skills-grid {
+        .contact-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-glow);
+            border-color: var(--accent-glow);
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "//";
+            color: var(--accent-glow);
+            margin-right: 10px;
+            font-family: monospace;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .project-title {
+            color: var(--accent-glow);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tech-stack {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .education-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
-        .skill-list {
-            list-style: none;
-            padding: 0;
+        .skill-tag {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-glow);
+            padding: 4px 12px;
+            border-radius: 6px;
+            margin: 0 5px 10px 0;
+            font-size: 0.9rem;
         }
 
-        .skill-list li {
-            background: var(--bg-light);
+        ul {
+            padding-left: 20px;
+            color: var(--text-dim);
+        }
+
+        li {
             margin-bottom: 8px;
-            padding: 8px 15px;
-            border-radius: 4px;
-            font-size: 0.95rem;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--bg-light);
+        @media (max-width: 600px) {
+            .education-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="glass-container">
         <header>
-            <h1>Fathima Suhana</h1> <div class="subtitle">Information Science and Engineering Student</div> <div class="contact-info">
-                <span>📍 Mangaluru, India</span> | 
-                <span>📞 +91 6361609808</span> | 
-                <a href="mailto:suhana01109@gmail.com">suhana01109@gmail.com</a> <br><br>
-                <a href="https://www.linkedin.com/in/-suhana">LinkedIn</a> | 
-                <a href="https://github.com/fathimaa-suhana">GitHub</a> </div>
+            <h1>FATHIMA SUHANA</h1> [cite: 22]
+            <span class="title-tag">Information Science & Engineering Student</span> 
+            <div class="contact-links">
+                <a href="mailto:suhana01109@gmail.com">📧 suhana01109@gmail.com</a> [cite: 25]
+                <a href="tel:+916361609808">📞 +91 6361609808</a> [cite: 24]
+                <a href="https://github.com/fathimaa-suhana">GitHub</a> [cite: 27]
+                <a href="https://www.linkedin.com/in/-suhana">LinkedIn</a> [cite: 26]
+            </div>
         </header>
 
         <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Motivated learner with basic experience in Python and web development, having worked on small academic projects. Eager to strengthen practical skills, learn new technologies and gain hands-on experience. </p>
+            <h2>About</h2>
+            <p style="color: var(--text-dim);">
+                Motivated learner with basic experience in Python and web development, having worked on small academic projects[cite: 29]. 
+                Eager to strengthen practical skills, learn new technologies, and gain hands-on experience[cite: 30].
+            </p>
         </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item">
-                <span class="date">2025 - 2029</span> <span class="school">St. Aloysius (Deemed to be university)</span> <span class="degree">Btech - Information Science and Engineering</span> </div>
-            <div class="education-item">
-                <span class="date">2023 - 2025</span> <span class="school">Manipal School</span> <span class="degree">Secondary High School</span> </div>
+        <section id="projects">
+            <h2>Featured Projects</h2> [cite: 43]
+            
+            <div class="project-card">
+                <span class="project-title">Clinic Management & Patient Data Analyser</span> [cite: 44]
+                <span class="tech-stack">Python | Web Development | CRUD Operations</span> [cite: 45, 48]
+                <ul>
+                    <li>Engineered a Clinic Appointment System to handle real-time scheduling, booking, and cancellation[cite: 46].</li>
+                    <li>Implemented a Patient Data Analyser module to process medical records and identify health trends[cite: 47].</li>
+                    <li>Designed backend architecture for efficient data handling of doctor schedules and patient history[cite: 48].</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <span class="project-title">Employee Management System</span> [cite: 49]
+                <span class="tech-stack">Python | Core Logic | Data Security</span> [cite: 51]
+                <ul>
+                    <li>Built a management portal to organize organizational data, including employee records and department structures[cite: 50].</li>
+                    <li>Focused on programming fundamentals to create a secure and structured environment for storing and retrieving information[cite: 51].</li>
+                </ul>
+            </div>
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
-            <div class="skills-grid">
-                <div>
-                    <h3>Technical</h3>
-                    <ul class="skill-list">
-                        <li>Python</li> <li>Web Development</li> </ul>
-                </div>
-                <div>
-                    <h3>Soft Skills</h3>
-                    <ul class="skill-list">
-                        <li>Communication</li> <li>Teamwork</li> <li>Leadership</li> </ul>
-                </div>
+            <div>
+                <span class="skill-tag">Python</span> [cite: 41]
+                <span class="skill-tag">Basic Web Development</span> [cite: 42]
+                <span class="skill-tag">Communication</span> [cite: 37]
+                <span class="skill-tag">Team Work</span> [cite: 38]
+                <span class="skill-tag">Leadership</span> [cite: 39]
             </div>
         </section>
 
-        <footer>
-            &copy; 2026 Fathima Suhana. All Rights Reserved.
-        </footer>
+        <section id="education">
+            <h2>Education</h2> [cite: 31]
+            <div class="education-grid">
+                <div>
+                    <strong style="color: var(--accent-glow);">2025 - 2029</strong> [cite: 32]<br>
+                    <strong>St. Aloysius (Deemed to be university)</strong> [cite: 32]<br>
+                    <span style="color: var(--text-dim);">Btech - Information Science and Engineering</span> [cite: 33]
+                </div>
+                <div>
+                    <strong style="color: var(--accent-glow);">2023 - 2025</strong> [cite: 34]<br>
+                    <strong>Manipal School</strong> [cite: 34]<br>
+                    <span style="color: var(--text-dim);">Secondary High School</span> [cite: 34]
+                </div>
+            </div>
+        </section>
     </div>
 
 </body>
